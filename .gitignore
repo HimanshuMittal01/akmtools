@@ -1,0 +1,11 @@
+# Environment
+.env
+venv/
+
+# Temp
+tests/
+
+# Cache
+**/*.pyc
+**/__pycache__/
+
