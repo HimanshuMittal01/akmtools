@@ -4,6 +4,11 @@ Streamlit entrypoint
 
 import streamlit as st
 
+st.logo(
+    'streamlitapp/static/images/akmlogo.jpeg',
+    size='large',
+)
+
 homepage = st.Page(
     page="streamlitapp/pages/about.py",
     title="AKMTools",
