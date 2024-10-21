@@ -145,7 +145,14 @@ def _calculate_gst_180days_interest(df: pl.DataFrame):
                 output['Balance Payable'].append(-min(0, current_balance))
     
     # Create output dataframe
-    df_output = pl.DataFrame(output).cast({'index': pl.UInt32}).join(df, on='index').drop('index')
+    df_output = pl.DataFrame(output, schema={
+        'index': pl.UInt32,
+        'Payment Date': pl.Date,
+        'Paid Amt (Total)': pl.Float32,
+        'Paid Amt (Bill-wise)': pl.Float32,
+        'Balance Payable': pl.Float32
+    })
+    df_output = df_output.join(df, on='index').drop('index')
 
     # Calculate interest
     df_output = df_output.with_columns(
