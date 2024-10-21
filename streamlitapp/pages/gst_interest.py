@@ -1,13 +1,11 @@
 """
-Streamlit entrypoint
+GST Interest Calculation Page
 """
-
-import streamlit as st
 
 import polars as pl
 import streamlit as st
 
-from akmtools.src.gst_interest import calculate_gst_180days_interest
+from akmtools.gst_interest import calculate_gst_180days_interest
 
 uploaded_file = st.file_uploader("Choose a file")
 
